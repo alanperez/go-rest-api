@@ -6,9 +6,9 @@ import (
 	"net/http"
 )
 
-func ErrorResponse(w, http.ResponseWriter, err error, status int) {
+func ErrorResponse(w http.ResponseWriter, err error, status int) {
 	w.WriteHeader(status)
-	ToJson(w, struct{
+	ToJson(w, struct {
 		Message string `json:"message`
 	}{
 		Message: err.Error(),
